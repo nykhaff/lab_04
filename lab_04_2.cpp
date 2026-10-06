@@ -29,25 +29,19 @@ int main() {
     
     x = xp;
     while (x <= xk) {
-        if (x == 0)
-            cout << "|" << setw(7) << setprecision(2) << x
-                 << " |" << setw(10) << setprecision(3) << "-"
-                 << " |\n";
-        else {
-            A = 2 / x + fabs(x);
-            if (x < 0)
-                B = 1 + 4 * pow(x, 2);
+        A = 2 / x + fabs(x);
+        if (x < 0)
+            B = 1 + 4 * pow(x, 2);
+        else
+            if (x >= 0 && x <= 2)
+                B = pow(exp(x) + fabs(x), 2);
             else
-                if (x >= 0 && x <= 2)
-                    B = pow(exp(x) + fabs(x), 2);
-                else
-                    B = 5 * sin(pow(x, 2) + 1);
+                B = 5 * sin(pow(x, 2) + 1);
 
-            y = A + B;
-            cout << "|" << setw(7) << setprecision(2) << x
-            << " |" << setw(10) << setprecision(3) << y
-            << " |\n";
-        }
+        y = A + B;
+        cout << "|" << setw(7) << setprecision(2) << x
+        << " |" << setw(10) << setprecision(3) << y
+        << " |\n";
         
         x += dx;
     }
